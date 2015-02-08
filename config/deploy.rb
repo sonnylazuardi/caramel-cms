@@ -2,13 +2,13 @@
 lock '3.2.1'
 
 set :application, 'caramelcms'
-set :repo_url, 'git@github.com:sonnylazuardi/caramelcms.git'
+set :repo_url, 'git@github.com:sonnylazuardi/caramel-cms.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/home/afrakids/afrakids'
+set :deploy_to, '/home/afrakids/caramelcms'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -23,10 +23,10 @@ set :deploy_to, '/home/afrakids/afrakids'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{app/config/database.php}
+set :linked_files, %w{.env}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{vendor public/banner public/products public/profilepicture public/downloads public/supports public/banks}
+# set :linked_dirs, %w{vendor public/banner public/products public/profilepicture public/downloads public/supports public/banks}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -44,7 +44,7 @@ namespace :deploy do
       # execute :touch, release_path.join('tmp/restart.txt')
       # execute "composer update --"
       # execute "php #{release_path}artisan migrate"
-      execute "chmod o+w #{release_path.join('app/storage')} -R"
+      # execute "chmod o+w #{release_path.join('app/storage')} -R"
       execute "cd '#{release_path}'; composer install --no-dev"
     end
   end

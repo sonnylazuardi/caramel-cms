@@ -13,6 +13,8 @@
 
 Route::get('/', 'PostController@index');
 
+Route::get('home', 'PostController@index');
+
 Route::resource('posts', 'PostController');
 
 Route::controllers([
